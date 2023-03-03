@@ -403,6 +403,19 @@ variable "prometheus_helm_config" {
   default     = {}
 }
 
+#-----------Kong-Ingress-------------
+variable "enable_kong_konnect" {
+  description = "Enable Kong Ingress add-on"
+  type        = bool
+  default     = false
+}
+
+variable "kong_helm_config" {
+  description = "Kong Ingress Helm Chart config"
+  type        = any
+  default     = {}
+}
+
 #-----------KUBE-PROMETHEUS-STACK-------------
 variable "enable_kube_prometheus_stack" {
   description = "Enable Community kube-prometheus-stack add-on"

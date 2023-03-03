@@ -337,6 +337,14 @@ module "keda" {
   addon_context     = local.addon_context
 }
 
+module "kong" {
+  count             = var.enable_kong_konnect ? 1 : 0
+  source            = "github.com/Kong/konnect-runtime-instance-addon-for-terraform-aws-eks-blueprints"
+  helm_config       = var.kong_helm_config
+  manage_via_gitops = var.argocd_manage_add_ons
+  addon_context     = local.addon_context
+}
+
 module "kubernetes_dashboard" {
   count             = var.enable_kubernetes_dashboard ? 1 : 0
   source            = "./kubernetes-dashboard"
