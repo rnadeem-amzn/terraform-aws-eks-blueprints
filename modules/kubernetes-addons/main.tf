@@ -341,6 +341,7 @@ module "kong" {
   count             = var.enable_kong_konnect ? 1 : 0
   source            = "github.com/Kong/konnect-runtime-instance-addon-for-terraform-aws-eks-blueprints?ref=v0.3"
   helm_config       = var.kong_helm_config
+  irsa_policies     = var.kong_irsa_policies
   manage_via_gitops = var.argocd_manage_add_ons
   addon_context     = local.addon_context
 }

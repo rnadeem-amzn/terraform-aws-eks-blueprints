@@ -416,6 +416,13 @@ variable "kong_helm_config" {
   default     = {}
 }
 
+variable "kong_irsa_policies" {
+  description = "Additional IAM policies for a IAM role for service accounts"
+  type        = list(string)
+  default     = []
+}
+
+
 #-----------KUBE-PROMETHEUS-STACK-------------
 variable "enable_kube_prometheus_stack" {
   description = "Enable Community kube-prometheus-stack add-on"
